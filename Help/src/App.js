@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Route } from "react-router-dom";
 
+import Map from "mapmyindia-react";
+
 import Topbar from "./components/Topbar";
 import Sidebar from "./components/navigation/Sidebar";
 import Input from "./components/pages/Input";
@@ -28,7 +30,7 @@ const App = () => {
     <div className="app">
       <Topbar toggleSidebar={toggleSideBar} />
       <div className="flex">
-        <Sidebar sidebarIsShown={sidebarIsShown} pages={pages} location={"/"} />
+        <Sidebar sidebarIsShown={true} pages={pages} location={"/"} />
         <Body>
           {pages.map((page, index) => {
             return (
@@ -40,6 +42,23 @@ const App = () => {
               />
             );
           })}
+        </Body>
+        <Body>
+          <Map
+            markers={[
+              {
+                position: [18.5314, 73.845],
+                draggable: true,
+                title: "Marker title",
+                onClick: e => {
+                  console.log("clicked ");
+                },
+                onDragend: e => {
+                  console.log("dragged");
+                }
+              }
+            ]}
+          />
         </Body>
       </div>
     </div>

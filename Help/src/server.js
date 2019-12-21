@@ -43,6 +43,7 @@ server
     <body>
         <div id="root">${markup}</div>
     </body>
+    <script src="https://apis.mapmyindia.com/advancedmaps/v1/pxxtfbmrhvgdf63x26yksfkcbvj3o5sp/map_load?v=0.1"></script>
 </html>`
       );
     }
