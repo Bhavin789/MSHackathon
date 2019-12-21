@@ -1,10 +1,15 @@
-'use strict';
-module.exports = (sequelize, DataTypes) => {
-  const markup = sequelize.define('markup', {
+import DataTypes from "sequelize";
+import sequelize from "./sequelize";
+
+const markup = sequelize.define(
+  "markup",
+  {
     title: DataTypes.STRING
-  }, {});
-  markup.associate = function(models) {
-    // associations can be defined here
-  };
-  return markup;
-};
+  },
+  {}
+);
+
+console.log(markup);
+
+
+export default markup;

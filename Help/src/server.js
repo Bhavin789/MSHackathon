@@ -4,9 +4,13 @@ import { StaticRouter } from "react-router-dom";
 import express from "express";
 import { renderToString } from "react-dom/server";
 
+import markupRouter from "./server/routes/markup"
+
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
 
 const server = express();
+
+server.use("/test", markupRouter);
 server
   .disable("x-powered-by")
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR))
