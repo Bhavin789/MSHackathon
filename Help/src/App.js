@@ -1,13 +1,40 @@
-import React from 'react';
-import Route from 'react-router-dom/Route';
-import Switch from 'react-router-dom/Switch';
-import Home from './Home';
-import './App.css';
+import React, { useState } from "react";
+import Button from "./components/button";
+import Topbar from "./components/Topbar";
+import Sidebar from "./components/navigation/Sidebar";
+import Input from "./components/pages/Input";
 
-const App = () => (
-  <Switch>
-    <Route exact path="/" component={Home} />
-  </Switch>
-);
+import "./index.css";
+
+const pages = [
+  {
+    name: "Input",
+    iconClass: "fas fa-keyboard",
+    path: "/input",
+    component: Input
+  }
+];
+
+const App = () => {
+  const [sidebarIsShown, setSidebarIsShown] = useState(false);
+
+  const toggleSideBar = () => {
+    setSidebarIsShown(prev => !prev);
+  };
+
+  return (
+    <div className="app">
+      <Topbar toggleSidebar={toggleSideBar} />
+      <div className="flex">
+        <Sidebar sidebarIsShown={sidebarIsShown} pages={pages} location={"/"} />
+      </div>
+
+      <h1>Super cool page</h1>
+      <Button onClick={() => console.log("I was clicked")}>
+        I am a button
+      </Button>
+    </div>
+  );
+};
 
 export default App;
