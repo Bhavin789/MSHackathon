@@ -10,6 +10,7 @@ WORKDIR /usr/src/app
 COPY package.json yarn.lock ./
 
 RUN yarn install
+RUN yarn global add sequelize-cli
 
 # Run dev server
 CMD ["yarn", "start"]
