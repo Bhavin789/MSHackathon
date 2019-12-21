@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import Button from "./components/button";
+import { Route } from "react-router-dom";
+
 import Topbar from "./components/Topbar";
 import Sidebar from "./components/navigation/Sidebar";
 import Input from "./components/pages/Input";
+import Body from "./components/Body";
 
 import "./index.css";
 
@@ -27,12 +29,19 @@ const App = () => {
       <Topbar toggleSidebar={toggleSideBar} />
       <div className="flex">
         <Sidebar sidebarIsShown={sidebarIsShown} pages={pages} location={"/"} />
+        <Body>
+          {pages.map((page, index) => {
+            return (
+              <Route
+                exact
+                path={page.path}
+                key={index}
+                component={page.component}
+              />
+            );
+          })}
+        </Body>
       </div>
-
-      <h1>Super cool page</h1>
-      <Button onClick={() => console.log("I was clicked")}>
-        I am a button
-      </Button>
     </div>
   );
 };
