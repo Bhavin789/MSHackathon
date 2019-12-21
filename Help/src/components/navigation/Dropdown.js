@@ -25,4 +25,4 @@ class DropDown extends Component{
 }
 
 
-export default DropDown
+export default DropDown;
