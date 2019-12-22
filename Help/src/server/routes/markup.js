@@ -8,4 +8,20 @@ markupRouter.get('/', async (req, res) => {
     return res.json(markups);
 })
 
+markupRouter.post('/', async (req, res) => {
+    const title = req.body.title;
+    const markupDetails = {
+        title
+    }
+    try {
+        await markup.save(markupDetails)
+    } catch (error) {
+        console.log(error);
+        return res.json({success: false});
+        
+    }
+    
+    return res.json({success: true});
+})
+
 export default markupRouter;

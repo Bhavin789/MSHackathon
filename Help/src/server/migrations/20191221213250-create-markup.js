@@ -11,6 +11,15 @@ module.exports = {
       title: {
         type: Sequelize.STRING
       },
+      latitude: {
+        type: Sequelize.INTEGER
+      },
+      longitude: {
+        type: Sequelize.INTEGER
+      },
+      userId: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
