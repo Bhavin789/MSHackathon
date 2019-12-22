@@ -1,5 +1,7 @@
 # Help
 
+Its a social welfare app build specially for girls so that they can get help in case for any inappropriate situation they might get into.
+
 Make sure you have docker installed in system. There is a script file `./help.sh` that contains command to run containers.
 
 Steps to run:
