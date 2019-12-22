@@ -11,5 +11,11 @@ build
 .env.test.local
 .env.production.local
 
+#Pgadmin data
 pgadmin-data
+
+#postgres volumes
 postgres-data
+
+# Sequelize Config file
+/src/server/config/config.json
