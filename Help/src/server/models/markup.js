@@ -5,14 +5,11 @@ const markup = sequelize.define(
   "markup",
   {
     title: DataTypes.STRING,
-    latitude: DataTypes.INTEGER,
-    longitude: DataTypes.INTEGER,
+    latitude: DataTypes.FLOAT,
+    longitude: DataTypes.FLOAT,
     userId: DataTypes.INTEGER,
   },
   {}
 );
-
-console.log(markup);
-
 
 export default markup;

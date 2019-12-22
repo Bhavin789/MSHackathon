@@ -10,15 +10,20 @@ markupRouter.get('/', async (req, res) => {
 
 markupRouter.post('/', async (req, res) => {
     const title = req.body.title;
+    const latitude = req.body.latitude;
+    const longitude = req.body.longitude;
+    const userId = req.body.userId;
     const markupDetails = {
-        title
+        title,
+        latitude,
+        longitude,
+        userId
     }
     try {
         await markup.save(markupDetails)
     } catch (error) {
         console.log(error);
         return res.json({success: false});
-        
     }
     
     return res.json({success: true});
